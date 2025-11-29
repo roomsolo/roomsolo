@@ -1,0 +1,98 @@
+html, body {
+  height: 100%;
+  background-color: #000; /* full-site black */
+  color: #fff; /* readable on black background */
+}
+body {
+  margin: 50px 0 0 0;
+  padding-top: 50px;
+
+}
+ .profile {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    position: fixed;
+    top: 30%;
+    left: 10%;
+    width: 30%;
+    height: 40%;
+    border-radius: 3px;
+    z-index: 10;
+    border-top: solid #ffffff;
+    border-left: solid #ffffff;
+    border-right: solid #ffffff;
+    border-bottom: solid #ffffff;
+
+ }
+ .profilepic {
+    padding-left: 5%;
+    height: auto;
+    padding-top: 10%;
+
+ }
+ .profiletext {
+    padding-left: 5%;
+    padding-top: 1.5%;
+    font-size: 1.4em;
+ }
+#word {
+  display: flex;
+}
+
+.text {
+  min-width: 20px;
+  border-bottom: 2px solid black;
+  margin: 5px;
+}
+#background {
+  z-index: 1;
+  position: fixed;
+  right: 22.5%;
+  bottom: 30%;
+  width: 50%;
+  height: 50%;
+}
+/* Add a black background color to the top navigation */
+.topnav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background-color: rgba(0, 0, 0, 0.9); /* semi-transparent if you want */
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  z-index: 10;
+  float: right;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  z-index: 10;
+
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add an active class to highlight the current page */
+.topnav a.active {
+  z-index: 10;
+  color: black;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+}
+
+/* Hide the link that should open and close the topnav on small screens */
+.topnav .icon {
+  z-index: 10;
+
+  display: none;
+}
