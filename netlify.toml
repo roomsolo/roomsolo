@@ -1,10 +1,12 @@
 [build]
-  publish = "."  
+  publish = "."
 
-[build.environment]
-  NODE_VERSION = "18"
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    "Content-Type" = "application/javascript; charset=utf-8"
 
-[[redirects]]
-  from = "/api/lanyard"
-  to = "/.netlify/functions/lanyard"
-  status = 200
+[[headers]]
+  for = "/.netlify/functions/*"
+  [headers.values]
+    "Access-Control-Allow-Origin" = "*"
