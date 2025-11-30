@@ -145,17 +145,18 @@ body {
 
 .status-text {
     margin-bottom: 0px;
-    padding-top: 0;
+    padding-top: 0px;
 }
 
 .song-title {
     font-weight: bold; 
-    font-size: 1.2em; 
-    margin-top: 0;
+    font-size: 0.8em; 
+    margin-bottom: 0px;
+    margin-top: 0px;
 }
 
 .artist-name {
     font-style: italic; 
-    font-size: 1em;
+    font-size: 0.75em;
     opacity: 0.8; 
 }
