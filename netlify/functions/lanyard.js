@@ -1,5 +1,6 @@
 exports.handler = async function(event, context) {
-    const DISCORD_USER_ID = '1288507939253911623'; //yeah im giving my discord id out to the public lol    
+    const DISCORD_USER_ID = '1288507939253911623';
+    
     try {
         const response = await fetch(`https://api.lanyard.rest/v1/users/${DISCORD_USER_ID}`);
         const data = await response.json();
@@ -8,14 +9,14 @@ exports.handler = async function(event, context) {
             statusCode: 200,
             headers: {
                 'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Headers': 'Content-Type'
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify(data)
         };
     } catch (error) {
         return {
             statusCode: 500,
-            body: JSON.stringify({ error: 'API çağrısı başarısız' })
+            body: JSON.stringify({ error: error.message })
         };
     }
 };
