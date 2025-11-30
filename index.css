@@ -144,18 +144,18 @@ body {
 }
 
 .status-text {
-    margin-bottom: 0.5px;
+    margin-bottom: 0px;
     padding-top: 0;
 }
 
 .song-title {
-    font-weight: bold; /* Şarkı adını kalın yapar */
-    font-size: 1.2em; /* Şarkı adını büyütür */
+    font-weight: bold; 
+    font-size: 1.2em; 
     margin-top: 0;
 }
 
 .artist-name {
-    font-style: italic; /* Sanatçı adını italik yapar */
+    font-style: italic; 
     font-size: 1em;
-    opacity: 0.8; /* Hafif soluklaştırır */
+    opacity: 0.8; 
 }
