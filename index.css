@@ -15,6 +15,29 @@ body {
   width: 50%;
   height: 50%;
   z-index: 1; }
+#effect-2 {
+  position: fixed;
+  right: 0.15%;
+  top: 1%;
+  width: 50%;
+  height: 50%;
+  z-index: 10; } 
+#effect-3 {
+  position: fixed;
+  right: 0%;
+  bottom: 1%;
+  z-index: 10; } 
+#effect-4 {
+  position: fixed;
+  right: 0%;
+  top: 1%;
+  z-index: 10; }  
+#effect-5 {
+  height: 100px;
+  width: 100px;
+  right: 0%;
+  position:absolute;
+  z-index: 10; }   
  .profile {
     position: fixed;
     top: 30%;
@@ -38,7 +61,11 @@ body {
  .profiletext {
     padding-left: 5%;
     padding-top: 1.5%;
-    font-size: 1.4em;
+    font-size: 1.1em;
+ }
+ .profiletext p {
+    padding-top: 0.25%;
+    margin-top: 0.25%;
  }
 #word {
   display: flex;
@@ -101,4 +128,34 @@ body {
   z-index: 10;
 
   display: none;
+}
+#now-playing {
+    position:fixed;
+    top: 75%;
+    left: 10%;
+    width: 15%;
+    height: 10%;
+    border-radius: 3px;
+    z-index: 10;
+    border-top: 0.5px solid #ffffff;
+    border-left: 1px solid #ffffff;
+    border-right: 1px solid #ffffff;
+    border-bottom: 0.5px solid #ffffff;
+}
+
+.status-text {
+    margin-bottom: 5px;
+    padding-top: 0;
+}
+
+.song-title {
+    font-weight: bold; /* Şarkı adını kalın yapar */
+    font-size: 1.2em; /* Şarkı adını büyütür */
+    margin-top: 0;
+}
+
+.artist-name {
+    font-style: italic; /* Sanatçı adını italik yapar */
+    font-size: 1em;
+    opacity: 0.8; /* Hafif soluklaştırır */
 }
