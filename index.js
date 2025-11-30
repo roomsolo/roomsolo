@@ -75,18 +75,56 @@ function updateElements(status, song, artist, albumArtUrl) {
     
     if (albumArtElement) {
         if (albumArtUrl) {
-            // YouTube Music album art URL'sini temizle
-            let cleanUrl = albumArtUrl;
-            if (cleanUrl.startsWith('mp:external/')) {
-                cleanUrl = cleanUrl.replace('mp:external/', 'https://');
-            }
+            // YouTube Music album art URL'sini düzgün şekilde çevir
+            let cleanUrl = decodeAlbumArtUrl(albumArtUrl);
             albumArtElement.src = cleanUrl;
             albumArtElement.style.display = 'block';
+            albumArtElement.onerror = function() {
+                console.log('Album art yüklenemedi, gizleniyor');
+                this.style.display = 'none';
+            };
             console.log('Album art ayarlandı:', cleanUrl);
         } else {
             albumArtElement.style.display = 'none';
         }
     }
+}
+
+function decodeAlbumArtUrl(url) {
+    if (!url) return null;
+    
+    console.log('Original URL:', url);
+    
+    // YouTube Music URL formatını decode et
+    if (url.startsWith('mp:external/')) {
+        // Format: mp:external/ENCODED_URL/https://...
+        try {
+            // URL'yi parçalara ayır
+            const parts = url.split('/');
+            // "mp:external" ve hash'i kaldır
+            const encodedPart = parts.slice(2).join('/');
+            
+            // Eğer https:// ile başlıyorsa direkt kullan
+            if (encodedPart.startsWith('https://')) {
+                return encodedPart;
+            }
+            
+            // Özel karakterleri decode et
+            let decodedUrl = encodedPart
+                .replace(/&/g, '&')
+                .replace(/%3D/g, '=')
+                .replace(/%3F/g, '?');
+                
+            console.log('Decoded URL:', decodedUrl);
+            return decodedUrl;
+            
+        } catch (error) {
+            console.error('URL decode hatası:', error);
+            return null;
+        }
+    }
+    
+    return url;
 }
 
 document.addEventListener('DOMContentLoaded', function() {
