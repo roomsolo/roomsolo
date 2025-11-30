@@ -149,19 +149,19 @@ body {
 .status-text {
     margin-bottom: 0px;
     padding-top: 0px;
-    font-size: 1.2em;
+    font-size: 0.8em;
     opacity: 0.8;
 }
 
 .song-title {
     font-weight: bold; 
-    font-size: 1.4em; 
+    font-size: 1.2em; 
     margin-bottom: 0px;
     margin-top: 0px;
 }
 
 .artist-name {
     font-style: italic; 
-    font-size: 1.3em;
+    font-size: 1.1em;
     opacity: 0.8; 
 }
