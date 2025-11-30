@@ -55,9 +55,9 @@ function processLanyardData(apiData) {
         
         console.log('Şarkı bulundu:', { song, artist, albumArt });
         
-        // Album art'ı basitçe koy
+
         if (albumArt && albumArtElement) {
-            // Direkt URL'yi kullan, hiç kurcalama
+
             albumArtElement.src = albumArt;
             albumArtElement.style.display = 'block';
             console.log('Album art koyuldu:', albumArt);
@@ -74,7 +74,7 @@ function processLanyardData(apiData) {
     } else {
         console.log('Müzik aktivitesi bulunamadı');
         updateElements('Şu an müzik dinlemiyorum', '', '');
-        // Müzik yoksa album art'ı gizle
+ 
         if (albumArtElement) {
             albumArtElement.style.display = 'none';
         }
@@ -91,21 +91,21 @@ function decodeAlbumArtUrl(url) {
     
     console.log('Original URL:', url);
     
-    // YouTube Music URL formatını decode et
+t
     if (url.startsWith('mp:external/')) {
-        // Format: mp:external/ENCODED_URL/https://...
+      
         try {
-            // URL'yi parçalara ayır
+            
             const parts = url.split('/');
-            // "mp:external" ve hash'i kaldır
+       
             const encodedPart = parts.slice(2).join('/');
             
-            // Eğer https:// ile başlıyorsa direkt kullan
+      
             if (encodedPart.startsWith('https://')) {
                 return encodedPart;
             }
             
-            // Özel karakterleri decode et
+        
             let decodedUrl = encodedPart
                 .replace(/&/g, '&')
                 .replace(/%3D/g, '=')

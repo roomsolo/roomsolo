@@ -1,7 +1,7 @@
 html, body {
   height: 100%;
-  background-color: #000; /* full-site black */
-  color: #fff; /* readable on black background */
+  background-color: #000; 
+  color: #fff; 
 }
 body {
   margin: 50px 0 0 0;
@@ -84,18 +84,18 @@ body {
   width: 50%;
   height: 50%;
 }
-/* Add a black background color to the top navigation */
+
 .topnav {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 9999;
-  background-color: rgba(0, 0, 0, 0.9); /* semi-transparent if you want */
+  background-color: rgba(0, 0, 0, 0.9); 
   overflow: hidden;
 }
 
-/* Style the links inside the navigation bar */
+
 .topnav a {
   z-index: 10;
   float: right;
@@ -107,7 +107,7 @@ body {
   font-size: 17px;
 }
 
-/* Change the color of links on hover */
+
 .topnav a:hover {
   z-index: 10;
 
@@ -115,7 +115,7 @@ body {
   color: black;
 }
 
-/* Add an active class to highlight the current page */
+
 .topnav a.active {
   z-index: 10;
   color: black;
@@ -123,7 +123,7 @@ body {
   color: rgb(0, 0, 0);
 }
 
-/* Hide the link that should open and close the topnav on small screens */
+
 .topnav .icon {
   z-index: 10;
 
@@ -133,8 +133,8 @@ body {
     position:fixed;
     top: 75%;
     left: 10%;
-    width: 20%; /* Genişlettik */
-    height: 12%; /* Yükseklik artırdık */
+    width: 15%; 
+    height: 10%; 
     border-radius: 3px;
     z-index: 10;
     border-top: 0.5px solid #ffffff;
