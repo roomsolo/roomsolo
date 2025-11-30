@@ -133,30 +133,35 @@ body {
     position:fixed;
     top: 75%;
     left: 10%;
-    width: 15%;
-    height: 10%;
+    width: 20%; /* Genişlettik */
+    height: 12%; /* Yükseklik artırdık */
     border-radius: 3px;
     z-index: 10;
     border-top: 0.5px solid #ffffff;
     border-left: 1px solid #ffffff;
     border-right: 1px solid #ffffff;
     border-bottom: 0.5px solid #ffffff;
+    display: flex;
+    align-items: center;
+    padding: 10px;
 }
 
 .status-text {
     margin-bottom: 0px;
     padding-top: 0px;
+    font-size: 0.9em;
+    opacity: 0.8;
 }
 
 .song-title {
     font-weight: bold; 
-    font-size: 0.8em; 
+    font-size: 1.1em; 
     margin-bottom: 0px;
     margin-top: 0px;
 }
 
 .artist-name {
     font-style: italic; 
-    font-size: 0.75em;
+    font-size: 0.9em;
     opacity: 0.8; 
 }
