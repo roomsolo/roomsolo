@@ -1,0 +1,10 @@
+[build]
+  publish = "."  
+
+[build.environment]
+  NODE_VERSION = "18"
+
+[[redirects]]
+  from = "/api/lanyard"
+  to = "/.netlify/functions/lanyard"
+  status = 200
