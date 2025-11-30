@@ -36,7 +36,7 @@ async function fetchLanyardData() {
 function processLanyardData(apiData) {
     if (!apiData.success || !apiData.data) {
         console.log('API başarısız veya data yok');
-        updateElements('API verisi alınamadı', '', '', null);
+        updateElements('API verisi alınamadı', '', '');
         return;
     }
 
@@ -54,40 +54,36 @@ function processLanyardData(apiData) {
         const albumArt = ytMusicActivity.assets?.large_image;
         
         console.log('Şarkı bulundu:', { song, artist, albumArt });
-        updateElements('🎧 Şu anda dinliyor:', song, `by ${artist}`, albumArt);
+        
+        // Album art'ı basitçe koy
+        if (albumArt && albumArtElement) {
+            // Direkt URL'yi kullan, hiç kurcalama
+            albumArtElement.src = albumArt;
+            albumArtElement.style.display = 'block';
+            console.log('Album art koyuldu:', albumArt);
+        }
+        
+        updateElements('🎧 Şu anda dinliyor:', song, `by ${artist}`);
         
     } else if (data.listening_to_spotify && data.spotify) {
         const song = data.spotify.song;
         const artist = data.spotify.artist;
         
-        updateElements('🎧 Şu anda dinliyor:', song, `by ${artist}`, null);
+        updateElements('🎧 Şu anda dinliyor:', song, `by ${artist}`);
         
     } else {
         console.log('Müzik aktivitesi bulunamadı');
-        updateElements('Şu an müzik dinlemiyorum', '', '', null);
-    }
-}
-
-function updateElements(status, song, artist, albumArtUrl) {
-    if (statusTextElement) statusTextElement.textContent = status;
-    if (songElement) songElement.textContent = song;
-    if (artistElement) artistElement.textContent = artist;
-    
-    if (albumArtElement) {
-        if (albumArtUrl) {
-            // YouTube Music album art URL'sini düzgün şekilde çevir
-            let cleanUrl = decodeAlbumArtUrl(albumArtUrl);
-            albumArtElement.src = cleanUrl;
-            albumArtElement.style.display = 'block';
-            albumArtElement.onerror = function() {
-                console.log('Album art yüklenemedi, gizleniyor');
-                this.style.display = 'none';
-            };
-            console.log('Album art ayarlandı:', cleanUrl);
-        } else {
+        updateElements('Şu an müzik dinlemiyorum', '', '');
+        // Müzik yoksa album art'ı gizle
+        if (albumArtElement) {
             albumArtElement.style.display = 'none';
         }
     }
+}
+function updateElements(status, song, artist) {
+    if (statusTextElement) statusTextElement.textContent = status;
+    if (songElement) songElement.textContent = song;
+    if (artistElement) artistElement.textContent = artist;
 }
 
 function decodeAlbumArtUrl(url) {
