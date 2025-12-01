@@ -3,9 +3,9 @@ const DISCORD_USER_ID = '1288507939253911623';
 const statusTextElement = document.getElementById('status-text') || document.querySelector('#now-playing .status-text');
 const songElement = document.getElementById('song-title') || document.querySelector('#now-playing .song-title');
 const artistElement = document.getElementById('artist-name') || document.querySelector('#now-playing .artist-name');
-const albumArtElement = document.querySelector('.album-art');
 
-console.log('Elementler bulundu:', { statusTextElement, songElement, artistElement, albumArtElement });
+
+console.log('Elementler bulundu:', { statusTextElement, songElement, artistElement });
 
 async function fetchLanyardData() {
     try {
@@ -29,7 +29,7 @@ async function fetchLanyardData() {
         }
         if (songElement) songElement.textContent = '';
         if (artistElement) artistElement.textContent = '';
-        if (albumArtElement) albumArtElement.style.display = 'none';
+
     }
 }
 
@@ -51,17 +51,10 @@ function processLanyardData(apiData) {
     if (ytMusicActivity && ytMusicActivity.details) {
         const song = ytMusicActivity.details; 
         const artist = ytMusicActivity.state; 
-        const albumArt = ytMusicActivity.assets?.large_image;
+  
         
         console.log('Şarkı bulundu:', { song, artist, albumArt });
-        
 
-        if (albumArt && albumArtElement) {
-
-            albumArtElement.src = albumArt;
-            albumArtElement.style.display = 'block';
-            console.log('Album art koyuldu:', albumArt);
-        }
         
         updateElements('🎧 Şu anda dinliyor:', song, `by ${artist}`);
         
@@ -74,10 +67,7 @@ function processLanyardData(apiData) {
     } else {
         console.log('Müzik aktivitesi bulunamadı');
         updateElements('Şu an müzik dinlemiyorum', '', '');
- 
-        if (albumArtElement) {
-            albumArtElement.style.display = 'none';
-        }
+
     }
 }
 function updateElements(status, song, artist) {
@@ -86,42 +76,7 @@ function updateElements(status, song, artist) {
     if (artistElement) artistElement.textContent = artist;
 }
 
-function decodeAlbumArtUrl(url) {
-    if (!url) return null;
-    
-    console.log('Original URL:', url);
-    
-t
-    if (url.startsWith('mp:external/')) {
-      
-        try {
-            
-            const parts = url.split('/');
-       
-            const encodedPart = parts.slice(2).join('/');
-            
-      
-            if (encodedPart.startsWith('https://')) {
-                return encodedPart;
-            }
-            
-        
-            let decodedUrl = encodedPart
-                .replace(/&/g, '&')
-                .replace(/%3D/g, '=')
-                .replace(/%3F/g, '?');
-                
-            console.log('Decoded URL:', decodedUrl);
-            return decodedUrl;
-            
-        } catch (error) {
-            console.error('URL decode hatası:', error);
-            return null;
-        }
-    }
-    
-    return url;
-}
+
 
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM yüklendi, fonksiyon başlatılıyor...');
