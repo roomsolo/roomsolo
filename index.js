@@ -53,7 +53,7 @@ function processLanyardData(apiData) {
         const artist = ytMusicActivity.state; 
   
         
-        console.log('Şarkı bulundu:', { song, artist, albumArt });
+        console.log('Şarkı bulundu:', { song, artist });
 
         
         updateElements('🎧 Şu anda dinliyor:', song, `by ${artist}`);
